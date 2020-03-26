@@ -1,0 +1,93 @@
+/*HEADER AND NAVIGATION*/
+
+header{
+    height: 125px;
+    display: flex;
+    background-color: #000000;
+    align-items: center;
+  }
+
+header article{
+  flex-grow: 1;
+}
+
+header article a img{
+  /*width: 15%;*/
+  height: 120px;
+}
+
+/*NAVIGATION*/
+
+nav ul{
+  display: flex;
+  list-style: none;
+}
+nav ul li{
+  padding: 0px 10px 0px 10px;
+}
+nav ul li a{
+  color: #ffffff;
+  font-size: 18px;
+  text-decoration: none;
+  font-family: 'Raleway', sans-serif;
+}
+nav ul li ul{
+  position: absolute;
+  list-style: none;
+  display: none;
+  padding-left: 0px;
+  background-color: #000000;
+}
+nav ul li ul li{
+  padding: 10px;
+}
+nav > ul > li:nth-child(2):hover ul{
+  display: block;
+}
+
+/*HEAD1*/
+.head1{
+  display: flex;
+  align-items:center;
+  min-height: 500px;
+  background-image: url('../img/neptuno.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.head1 h1{
+  width: 100%;
+  text-align: center;
+  font-size: 60px;
+  color: rgb(25, 28, 31);
+  font-family: 'Cinzel', serif;
+  opacity: 1;
+}
+
+
+
+/*BODY*/
+
+h1{
+  font-family: 'Cinzel', serif;
+
+}
+
+/*FOOTER*/
+
+footer{
+  background-color: #000000;
+  padding: 50px;
+}
+footer h3{
+  color: #ffffff;
+  margin: 0px;
+  width: 100%;
+  text-align: center;
+}
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    background-color: #960909;
+    color: #fff;
+}
