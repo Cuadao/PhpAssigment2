@@ -5,6 +5,7 @@ require_once('header.php');
 
 <?php
 //$musicianId = $_POST['musicianId'];  // we need the id if we are updating an existing record
+$id_categ = $_POST['id_categ'];
 $categ_name = $_POST['categ_name'];
 $categ_desc = $_POST['categ_desc'];
 
@@ -22,24 +23,40 @@ elseif (strlen($categ_name) > 100) {
     $ok = false;
 }
 
-//$db = new PDO('mysql:host=localhost; dbname=alceneptunobox', 'root', '');
-require_once('db/db.php');
+if ($ok == true) {
+    // connect
+    //$db = new PDO('mysql:host=localhost; dbname=alceneptunobox', 'root', '');
+    require_once('db/db.php');
 
-$sql = "INSERT INTO categories (categ_name, categ_desc) VALUES 
+    // set up insert or update
+    if (empty($id_categ)) {
+        $sql = "INSERT INTO categories (categ_name, categ_desc) VALUES 
         (:categ_name, :categ_desc)";
-
-$cmd = $db->prepare($sql);
+    }
+    else {
+        $sql = "UPDATE categories SET categ_name = :categ_name, categ_desc = :categ_desc
+         WHERE id_categ = :id_categ";
+    }
+    $cmd = $db->prepare($sql);
 
     // bind the variables into the INSERT command
-$cmd->bindParam(':categ_name', $categ_name, PDO::PARAM_STR, 45);
-$cmd->bindParam(':categ_desc', $categ_desc, PDO::PARAM_STR, 100);
+    $cmd->bindParam(':categ_name', $categ_name, PDO::PARAM_STR, 45);
+    $cmd->bindParam(':categ_desc', $categ_desc, PDO::PARAM_STR, 100);
+   
+    if (!empty($id_categ)) {
+        $cmd->bindParam(':id_categ', $id_categ, PDO::PARAM_INT);
+    }
 
-$cmd->execute();
+    // save to db
+    $cmd->execute();
 
     // disconnect
-$db = null;
+    $db = null;
 
-echo 'Category Created Correctly';
+    //echo 'Musician Saved';
+    header('location:products.php');
+}
+//echo 'Category Created Correctly';
 
 ?>
 
