@@ -13,9 +13,9 @@ if (!empty($_GET['id_prod'])){
     $id_prod = $_GET['id_prod'];
 
 
-//require_once('db/db.php');
+require_once('db/db.php');
 
-$db = new PDO('mysql:host=localhost; dbname=alceneptunobox', 'root', '');
+//$db = new PDO('mysql:host=localhost; dbname=alceneptunobox', 'root', '');
 $sql = "SELECT * FROM products WHERE id_prod = $id_prod";
 $cmd = $db->prepare($sql);
 $cmd->bindParam(':id_prod', $id_prod, PDO::PARAM_INT);

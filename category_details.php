@@ -9,11 +9,7 @@ $categ_desc = null;
 if (!empty($_GET['id_categ'])){
     $id_categ = $_GET['id_categ'];
 
-
-//require_once('db/db.php');
-
-$db = new PDO('mysql:host=localhost; dbname=alceneptunobox', 'root', '');
-
+require_once('db/db.php');
 
 $sql = "SELECT * FROM categories WHERE id_categ = $id_categ";
 $cmd = $db->prepare($sql);
