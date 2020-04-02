@@ -15,17 +15,7 @@
   </article>
   <nav>
     <ul>
-      <li><a href="home.php">Home</li>
-      <li><a href="">Orders</li>
-      <li><a href="customers.php">Customers</a>
-      <li><a href="products.php">Products</a>
-        <ul>
-          <li><a href="">Canvas</a>
-          <li><a href="">Easels</a>
-          <li><a href="">Other</a>
-        </ul>
-        <li><a href="">Profile</a>
-        <li><a href="login.php">Log Out</a>
+      <li><a href="index.php">Return</a>
       </li>
      </ul>
   </nav>

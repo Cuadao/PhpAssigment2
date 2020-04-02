@@ -1,7 +1,7 @@
-create schema Camilo200399644;
+create schema alceneptunobox;
 
-USE Camilo200399644;
-CREATE TABLE `Camilo200399644`.`customers` (
+USE alceneptunobox;
+CREATE TABLE `alceneptunobox`.`customers` (
   `id_cust` INT NOT NULL AUTO_INCREMENT,
   `cust_name` VARCHAR(45) NOT NULL,
   `cust_lastname` VARCHAR(45) NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE `Camilo200399644`.`customers` (
   `date_birth` VARCHAR(45) NULL,
   PRIMARY KEY (`id_cust`));
   
-INSERT INTO `Camilo200399644`.`customers` 
+INSERT INTO `alceneptunobox`.`customers` 
 (`id_cust`, `cust_name`, `cust_lastname`, `cust_address`,
  `cust_cellphone`, `cust_email`, `cust_city`, `date_birth`) 
 VALUES ('1', 'Panamericana', 'Libreria y Papeleria', '32 Trainn street',
@@ -21,22 +21,22 @@ VALUES ('1', 'Panamericana', 'Libreria y Papeleria', '32 Trainn street',
  '987 54 33', 'comercial@gmail.com', 'bogota', '01-11-90');
 
 
-USE Camilo200399644;  
-CREATE TABLE `Camilo200399644`.`categories` (
+USE alceneptunobox;  
+CREATE TABLE `alceneptunobox`.`categories` (
   `id_categ` INT NOT NULL AUTO_INCREMENT,
   `categ_name` VARCHAR(45) NOT NULL,
   `categ_desc` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`id_categ`));
   
-INSERT INTO `Camilo200399644`.`categories` 
+INSERT INTO `alceneptunobox`.`categories` 
 (`id_categ`, `categ_name`, `categ_desc`) VALUES 
 ('1', 'Canva and Frame', 'Canvas and Frames to painting profesional Texture'),
 ('2', 'Easel', 'Easel in wood of different kind of references to floor and table'),
 ('3', 'Oil Colors', 'Oil colors in different sizes and different brands'),
 ('4', 'Brush', 'Brush in diferents sizes and brands');
 
-USE Camilo200399644;
-  CREATE TABLE `Camilo200399644`.`products` (
+USE alceneptunobox;
+  CREATE TABLE `alceneptunobox`.`products` (
   `id_prod` INT NOT NULL AUTO_INCREMENT,
   `prod_name` VARCHAR(60) NOT NULL,
   `prod_descr` VARCHAR(100) NOT NULL,
@@ -51,7 +51,7 @@ USE Camilo200399644;
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
   
-INSERT INTO `Camilo200399644`.`products` 
+INSERT INTO `alceneptunobox`.`products` 
 (`id_prod`, `prod_name`, `prod_descr`, `prod_price1`, `prod_price2`, `id_category`) 
 VALUES
 ('1', 'Canva 20 x 30 cm Normal', 'Canva with frame 3cm thickness', '15', '12', '1'),
@@ -62,6 +62,16 @@ VALUES
  ('6', 'Oli color Franco', 'Oil color Franco Arte 135ml color blue', '17', '17', '3'),
  ('7', 'Brush 1 inch', 'Brush 1 inch martha hair', '10', '10', '4'),
  ('8', 'Brush 4 inch', 'Brush 4 inch sintetyc hair', '19', '19', '4');
+ 
+ CREATE TABLE `alceneptunobox`.`users` (
+  `id_user` INT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(60) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
+  `name_usr` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id_user`));
+  
+
+
 
 
 

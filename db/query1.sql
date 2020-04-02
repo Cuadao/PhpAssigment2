@@ -63,5 +63,10 @@ VALUES
  ('7', 'Brush 1 inch', 'Brush 1 inch martha hair', '10', '10', '4'),
  ('8', 'Brush 4 inch', 'Brush 4 inch sintetyc hair', '19', '19', '4');
 
-
+ CREATE TABLE `Camilo200399644`.`users` (
+  `id_user` INT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(60) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
+  `name_usr` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id_user`));
 

@@ -30,7 +30,7 @@ echo '</table>';
 
 $db = null;
 ?>
-
+<a href="customer_details.php">Create Customer</a>
 <?php
 require_once('footer.php')
 ?>

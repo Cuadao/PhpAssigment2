@@ -1,0 +1,5 @@
+value="<?php echo $prod_name; ?>" 
+value="<?php echo $prod_descr; ?>"
+value="<?php echo $prod_price1; ?>"
+value="<?php echo $prod_price2; ?>"
+value="<?php echo $id_category; ?>"
