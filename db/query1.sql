@@ -36,7 +36,7 @@ INSERT INTO `Camilo200399644`.`categories`
 ('4', 'Brush', 'Brush in diferents sizes and brands');
 
 USE Camilo200399644;
-  CREATE TABLE `Camilo200399644`.`products` (
+   CREATE TABLE `Camilo200399644`.`products` (
   `id_prod` INT NOT NULL AUTO_INCREMENT,
   `prod_name` VARCHAR(60) NOT NULL,
   `prod_descr` VARCHAR(100) NOT NULL,
@@ -70,3 +70,57 @@ VALUES
   `name_usr` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id_user`));
 
+CREATE TABLE `Camilo200399644`.`order_state` (
+  `id_state` INT NOT NULL AUTO_INCREMENT,
+  `state_name` VARCHAR(45) NOT NULL,
+  `state_descr` VARCHAR(60) NOT NULL,
+  PRIMARY KEY (`id_state`));
+  
+INSERT INTO `Camilo200399644`.`order_state` (`id_state`, `state_name`, `state_descr`) VALUES 
+('1', 'recived', 'when customer creat it'),
+('2', 'warehouse', 'when is organicing the products to deliver'),
+('3', 'manufacturing', 'when the people is working in the order'),
+('4', 'deliver', 'when order is delivering'),
+('5', 'done', 'when order was reciving '),
+('6', 'cancelled', 'when order the customer cancell the order');
+
+CREATE TABLE `Camilo200399644`.`orders` (
+  `id_order` INT NOT NULL AUTO_INCREMENT,
+  `order_date` VARCHAR(45) NOT NULL,
+  `id_customer` INT NOT NULL,
+  `state_order` INT NOT NULL,
+  `create_by` INT NOT NULL,
+  `quatity` INT NOT NULL,
+  `id_product` INT NOT NULL,
+  `total` INT NOT NULL,
+  `observations` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`id_order`),
+  INDEX `id_customer_idx` (`id_customer`),
+  INDEX `state_order_idx` (`state_order`),
+  INDEX `product_id_idx` (`id_product`),
+  INDEX `create_by_idx` (`create_by`),
+  CONSTRAINT `id_customer`
+    FOREIGN KEY (`id_customer`)
+    REFERENCES `Camilo200399644`.`customers` (`id_cust`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `state_order`
+    FOREIGN KEY (`state_order`)
+    REFERENCES `Camilo200399644`.`order_state` (`id_state`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `id_product`
+    FOREIGN KEY (`id_product`)
+    REFERENCES `Camilo200399644`.`products` (`id_prod`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `create_by`
+    FOREIGN KEY (`create_by`)
+    REFERENCES `Camilo200399644`.`users` (`id_user`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+    
+INSERT INTO `Camilo200399644`.`orders` (`id_order`, `order_date`, `id_customer`, `state_order`,
+ `create_by`, `quatity`, `id_product`, `total`, `observations`) VALUES 
+('1', '01-01-2020', '1', '1', '1', '2', '1', '50', 'A'),
+('2', '01-01-2020', '2', '1', '1', '3', '2', '100', 'B');
