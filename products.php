@@ -1,18 +1,21 @@
 <?php
+session_start();
 $title = 'Products NeptunoBox';
-require_once('header.php');
+require_once 'header.php';
+require_once 'validateauth.php';
 ?>
 <h1>Categories</h1>
+<br>
+<a href="category_details.php">Create Category</a>
+<br>
 <?php
 require_once('db/db.php');
-
-
 $sql = "SELECT * FROM categories";
 $cmd = $db->prepare($sql);
 $cmd->execute();
 $categories = $cmd->fetchAll();
 
-echo '<table border="1"><thead><th>Name</th><th>Description</th><th>Update</th></thead>';
+echo '<table class="table"><thead><th>Name</th><th>Description</th><th>Update</th></thead>';
 foreach ($categories as $value) {
     echo '<tr><td>'. $value['categ_name'] . '</td>
                 <td>' . $value['categ_desc'] . '</td>
@@ -24,7 +27,7 @@ echo '</table>';
 
 ?>
 
-<a href="category_details.php">Create Category</a>
+
 <br>
 <br>
 
@@ -38,7 +41,7 @@ $cmd = $db->prepare($sql);
 $cmd->execute();
 $products = $cmd->fetchAll();
 
-echo '<table border="1"><thead><th>Name</th><th>Description</th><th>Store Price</th>
+echo '<table class="table"><thead><th>Name</th><th>Description</th><th>Store Price</th>
         <th>wholesale Price</th><th>Category</th><th>Update</th><th>Delete</th></thead>';
 foreach ($products as $value) {
     echo '<tr><td>' . $value['prod_name'] . '</td>

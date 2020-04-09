@@ -25,7 +25,7 @@ $db = null;
 
 //take user back to the update list
 //header( string  )
-//header('location:products.php');
+header('location:products.php');
 
 ?>
 

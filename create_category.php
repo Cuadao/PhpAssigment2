@@ -1,6 +1,8 @@
 <?php
+session_start();
 $title = 'Create Category NeptunoBox';
-require_once('header.php');
+require_once 'header.php';
+require_once 'validateauth.php';
 ?>
 
 <?php

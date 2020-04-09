@@ -1,6 +1,8 @@
 <?php
+session_start();
 $title = 'Create Products NeptunoBox';
-require_once('header.php');
+require_once 'header.php';
+require_once 'validateauth.php';
 
 //$musicianId = $_POST['musicianId'];  // we need the id if we are updating an existing record
 $id_prod = $_POST['id_prod'];

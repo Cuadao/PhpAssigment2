@@ -1,6 +1,8 @@
 <?php
+session_start();
 $title = 'Category Details NeptunoBox';
-require_once('header.php');
+require_once 'header.php';
+require_once 'validateauth.php';
 
 $id_categ = null;
 $categ_name = null;

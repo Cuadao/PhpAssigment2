@@ -11,7 +11,7 @@ session_start();
 session_unset(); // remove any session variables
 session_destroy(); // delete the session from memory
 
-header('location:login.php');
+header('location:index.php');
 ?>
 </body>
 </html>

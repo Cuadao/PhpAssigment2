@@ -1,6 +1,8 @@
 <?php
+session_start();
 $title = 'Product Details NeptunoBox';
-require_once('header.php');
+require_once 'header.php';
+require_once 'validateauth.php';
 
 $id_prod = null;
 $prod_name = null;
@@ -12,10 +14,8 @@ $id_category = null;
 if (!empty($_GET['id_prod'])){
     $id_prod = $_GET['id_prod'];
 
-
 require_once('db/db.php');
 
-//$db = new PDO('mysql:host=localhost; dbname=alceneptunobox', 'root', '');
 $sql = "SELECT * FROM products WHERE id_prod = $id_prod";
 $cmd = $db->prepare($sql);
 $cmd->bindParam(':id_prod', $id_prod, PDO::PARAM_INT);
@@ -40,7 +40,7 @@ $db = null;
 <form method="POST" action="create_product.php">
     <fieldset>
         <label for="prod_name" cclass="col-md-2">Product Name:</label>
-        <input name="prod_name" id="name" value="<?php echo $prod_name; ?>"/>
+        <input name="prod_name" id="prod_name" value="<?php echo $prod_name; ?>"/>
     </fieldset>
     <fieldset>
         <label for="prod_descr" class="col-md-2">Product Description:</label>
